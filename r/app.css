@@ -1,0 +1,42 @@
+:root{--void:#070713;--panel:#0d0b1d;--line:#2a2144;--violet:#7c3ee3;--lilac:#c090ee;--white:#f6f1ff;--muted:#918aa8;--green:#55e6ad;--amber:#f5bd63;--red:#ff6b87;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--void);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 0,rgba(124,62,227,.18),transparent 40%),linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:auto,38px 38px,38px 38px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+main{position:relative;width:min(860px,calc(100% - 32px));margin:auto;padding:44px 0 40px}
+.top{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.top img{width:44px;height:44px;border-radius:12px;box-shadow:0 0 28px rgba(124,62,227,.25)}
+.top b{display:block;letter-spacing:.18em}
+.top small{color:var(--muted);letter-spacing:.18em;font-size:11px}
+.card{border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(16,13,35,.97),rgba(9,8,20,.96));box-shadow:0 24px 70px rgba(0,0,0,.35);padding:26px;animation:rise .7s var(--ease) both}
+.card.ok{border-color:rgba(85,230,173,.28)}.card.warn{border-color:rgba(245,189,99,.3)}.card.err{border-color:rgba(255,107,135,.3)}
+.head{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.icon{flex:none;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;color:var(--green);background:rgba(85,230,173,.08);border:1px solid rgba(85,230,173,.35)}
+.warn .icon{color:var(--amber);background:rgba(245,189,99,.08);border-color:rgba(245,189,99,.35)}
+.err .icon{color:var(--red);background:rgba(255,107,135,.08);border-color:rgba(255,107,135,.35)}
+.icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.icon b{font-size:24px}
+h1{margin:0 0 4px;font-size:26px;letter-spacing:-.02em}
+.head p,.empty p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+h2{margin:26px 0 10px;font:700 11px Consolas,monospace;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tile{min-width:0;display:grid;gap:4px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--panel);animation:rise .6s var(--ease) both}
+.tile:nth-child(2){animation-delay:.06s}.tile:nth-child(3){animation-delay:.12s}.tile:nth-child(4){animation-delay:.18s}
+.tile span{font:700 10px Consolas,monospace;letter-spacing:.14em;color:var(--muted)}
+.tile b{font-size:24px;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile small{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile.ok{border-color:rgba(85,230,173,.22)}.tile.ok b{color:var(--green)}
+.tile.warn{border-color:rgba(245,189,99,.25)}.tile.warn b{color:var(--amber)}
+.tile.err{border-color:rgba(255,107,135,.28)}.tile.err b{color:var(--red)}
+.steps,.issues{display:grid;gap:8px}
+.step,.issue{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.step i,.issue i{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font:700 12px Consolas,monospace;font-style:normal;color:var(--muted);border:1px solid var(--line)}
+.step.success i{color:var(--green);border-color:rgba(85,230,173,.35)}
+.step.warning,.issue.warn{border-color:rgba(245,189,99,.25)}.step.warning i,.issue.warn i{color:var(--amber);border-color:rgba(245,189,99,.35)}
+.step.error,.issue.err{border-color:rgba(255,107,135,.25);background:linear-gradient(90deg,rgba(255,107,135,.07),var(--panel) 70%)}.step.error i,.issue.err i{color:var(--red);border-color:rgba(255,107,135,.35)}
+.step strong{display:block;font-size:13.5px;margin-bottom:3px}
+.step p,.issue p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.45;word-break:break-word}
+.empty h1{margin-bottom:8px}.empty b{color:var(--lilac)}
+.foot{margin-top:22px;text-align:center;color:#625c76;font:11px Consolas,monospace}
+@keyframes rise{from{opacity:0;transform:translateY(16px);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+@media(max-width:640px){main{padding-top:26px}.card{padding:20px 18px}.tiles{grid-template-columns:repeat(2,1fr)}.tile b{font-size:20px}h1{font-size:22px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
